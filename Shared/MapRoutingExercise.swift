@@ -17,7 +17,7 @@ struct MapRoutingExercise: App {
     }
 }
 
-/// Simple data structure representing an identifiable waypoint.
+/// Simple data structure representing an `Identifiable` waypoint.
 struct Waypoint: Identifiable, CustomStringConvertible {
     
     let id = UUID()
@@ -51,16 +51,16 @@ struct Waypoint: Identifiable, CustomStringConvertible {
 
 /// Loads all waypoints from a specified JSON file. Expected file format is a JSON
 /// array of `(n, 3)` shape where `n` is the number of waypoints each represented
-/// by a 3-tuple containing latitude (`Double`), longitude (`Double`), and heartrate (`int`).
+/// by a 3-tuple containing latitude (`Double`), longitude (`Double`), and heartrate (`Int`).
 ///
-/// - Parameter file: in the main bundle to load waypoints from.
+/// - Parameter file: packaged in the main bundle form which to load waypoints.
 ///
-/// - Returns: an array of waypoints, if successfully parsed; an empty array, othewise.
+/// - Returns: an array of waypoints, if successfully parsed; an empty array, otherwise.
 func loadWaypoints(from file: String) -> Array<Waypoint> {
 
     var waypoints = Array<Waypoint>();
 
-    // If issues are encountered during file reading return no waypoints.
+    // If issues are encountered during file reading/parsing return no waypoints.
     guard
         let path = Bundle.main.path(forResource: file, ofType: "json"),
         let data = (try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)),
