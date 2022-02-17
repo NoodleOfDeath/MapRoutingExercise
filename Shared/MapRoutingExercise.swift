@@ -1,5 +1,5 @@
 //
-//  FutureExerciseApp.swift
+//  MapRoutingExercise.swift
 //  Shared
 //
 //  Created by tmorgan on 2/16/22.
@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 @main
-struct FutureExerciseApp: App {
+struct MapRoutingExercise: App {
     var body: some Scene {
         WindowGroup {
             ContentView(waypoints: loadWaypoints(from: "waypoints"))
